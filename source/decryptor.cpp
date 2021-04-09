@@ -7,7 +7,9 @@
 size_t Decryptor::MAX_KEY_LEN = 5;
 
 Decryptor::Decryptor(const std::string& filename) {
-    std::ifstream text(filename);
+    std::ifstream file(filename);
+    std::stringstream text;
+    text << file.rdbuf();
 
     std::string word;
     std::deque<std::string> curr_words;
