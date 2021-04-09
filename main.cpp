@@ -11,8 +11,18 @@ int main(int argc, char* argv[]) {
     }
 
     Decryptor decryptor(argv[1]);
-    std::string key;
-    while (std::cin >> key) {
-        std::cout << "result: " << decryptor.decrypt(key) << std::endl;
-    }
+
+    for (;;) {
+		std::string key;
+		std::cout << "Input key: ";
+		if (!(std::cin >> key)) {
+			break;
+		}
+		int result = decryptor.decrypt(key);
+		if (result == -1) {
+			std::cout << "Key not found";
+		} else {
+			std::cout << "Key position: " << result << '\n';
+		}
+	}
 }
