@@ -25,7 +25,7 @@ Decryptor::Decryptor(const std::string& filename) {
         for (size_t i = 0; i < curr_words.size(); ++i) {
             inserting_word[i] = curr_words[i][i];
         }
-
+        trie.insert(inserting_word, curr_starting_word_position);
         ++curr_starting_word_position;
         curr_words.pop_front();
         if (text >> word) {

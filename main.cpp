@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 		}
 		int result = decryptor.decrypt(key);
 		if (result == -1) {
-			std::cout << "Key not found";
+			std::cout << "Key not found\n";
 		} else {
 			std::cout << "Key position: " << result << '\n';
 		}
